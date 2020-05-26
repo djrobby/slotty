@@ -18,9 +18,11 @@ module Slotty
         end
 
         slots << {
+          wday:       potential_slot.begin.strftime('%w'),
+          date:       potential_slot.begin.strftime('%Y-%m-%d'),
+          time:       potential_slot.begin.strftime('%I:%M %p'),
           start_time: potential_slot.begin,
-          end_time:   potential_slot.end,
-          time:       potential_slot.begin.strftime('%H:%M %p')
+          end_time:   potential_slot.end
         }
 
         potential_slot = (potential_slot.begin + timeframe)..(potential_slot.begin + timeframe + slot_length)
